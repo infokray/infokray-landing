@@ -1,0 +1,210 @@
+@import "../../styles/mixins.scss";
+
+.navBar {
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 30px 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__menu {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    top: 0;
+    left: -10vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    transform: translate(-100%, 0);
+    transition: all 0.5s ease;
+  }
+
+  &__link {
+    font-family: "Roboto";
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &:first-child {
+      margin-top: 35vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    span {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+  &__menu.active {
+    transform: translate(0, 0);
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding: 40px 0 13px 0;
+    &__burgerIcon {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 45px 0 13px 0;
+
+    &__burgerIcon {
+      width: 42px;
+      height: 42px;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    &__burgerIcon {
+      display: none;
+    }
+
+    &__menu {
+      position: static;
+      transform: translate(0, 0);
+      width: 80%;
+      height: auto;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 590px;
+    }
+
+    &__link {
+      margin: 0;
+
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    &__link {
+      span a {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// Hamburger icon animation and styles
+#menuToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  input {
+    opacity: 0;
+    width: 20px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  span {
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+    position: absolute;
+    z-index: 1999;
+    margin-top: 3px;
+    left: 0;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 2px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &::before {
+      transform: translateY(-7px);
+    }
+
+    &::after {
+      transform: translateY(7px);
+    }
+  }
+
+  input:checked ~ span {
+    opacity: 1;
+    transform: translateX(-10px);
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg) translate(10px, -10px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(10px, 10px);
+    }
+  }
+
+  input:checked ~ ul {
+    transform: none;
+    left: -30px;
+    top: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    input {
+      width: 50px;
+      height: 40px;
+      left: 0;
+      position: absolute;
+    }
+    span {
+      width: 50px;
+      height: 4px;
+      left: 0;
+
+      &::before,
+      &::after {
+        width: 50px;
+        height: 4px;
+      }
+
+      &::before {
+        transform: translateY(-12px);
+      }
+
+      &::after {
+        transform: translateY(12px);
+      }
+    }
+    input:checked ~ ul {
+      top: -30px;
+      left: -80px;
+    }
+  }
+}

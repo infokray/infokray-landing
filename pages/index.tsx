@@ -1,0 +1,34 @@
+import React, { FC } from "react";
+import { NextPage } from "next";
+import HomeFragment from "../components/BackgroundFragments/HomeFragment";
+import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
+import CTAButton from "../components/CTAButton/CTAButton";
+import HomeIllustration from "../components/Illustrations/HomeIllustration";
+import Logo from "../components/Logo/Logo";
+
+const Home: NextPage = () => {
+  return (
+    <>
+      <div className="page-content__container" style={{ marginTop: "120px" }}>
+        <div className="page-content__text-content">
+          <h1 className="page-content__header">
+            ЛАСКОВО ПРОСИМО В <br />
+            <Logo visible={true} />
+          </h1>
+          <p className="page-content__paragraph">
+            Ми надаємо послуги з організації виставок, конференцій, форумів,
+            семінарів, бізнес-тренінгів, воркшопів тощо. Також Ви можете
+            замовити у нас організацію корпоративного тімбілдингу та організацію
+            корпоративних подій і святкувань.»
+          </p>
+          <CTAButton />
+        </div>
+        <HomeIllustration className="page-content__illustration" />
+      </div>
+      <ContactsBlock />
+      <HomeFragment className="page-content__fragment" />
+    </>
+  );
+};
+
+export default Home;

@@ -1,0 +1,52 @@
+@import "../../styles/mixins";
+
+.ctaBtn {
+	display: flex;
+	margin-left: auto;
+	&__btn {
+	  display: inline-block;
+	  border: none;
+	  padding: 10px 23px;
+	  text-decoration: none;
+	  background: #4c629f;
+	  color: #ffffff;
+	  font-family: "Roboto";
+	  font-size: 14px;
+	  cursor: pointer;
+	  text-align: center;
+	  transition: background 250ms ease-in-out, transform 150ms ease;
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  margin-left: auto;
+	  margin-top: 10%;
+	  border-radius: 15px;
+	  line-height: 21px;
+      
+	  letter-spacing: 0.1em;
+      
+	  &:hover,
+	  &:focus {
+	    background: #3f5285;
+	  }
+      
+	  &:focus {
+	    outline: 0px;
+	    outline-offset: -4px;
+	  }
+      
+	  &:active {
+	    transform: scale(0.99);
+	  }
+	}
+      
+	@include media-breakpoint-up(mg) {
+	  &__btn{
+	    margin-top: 8%;
+	  }
+	}
+	@include media-breakpoint-up(xl) {
+	  &__btn{
+	    font-size: 16px;
+	  }
+	}
+      }

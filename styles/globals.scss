@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+@import "./mixins.scss";
+@import "./page-content.scss";
+@import "./seminar.scss";
+@import "./vebinar.scss";
+@import "./contactpage.scss";
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: "Seoul";
+  src: local("Seoul"), url(./fonts/SeoulHangangCondensed-Bold.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Seoul";
+  src: url("./fonts/SeoulHangang-B.ttf.woff") format("woff"),
+    url("./fonts/SeoulHangang-B.ttf.svg#SeoulHangang-B") format("svg"),
+    url("./fonts/SeoulHangang-B.ttf.eot"),
+    url("./fonts/SeoulHangang-B.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#__next {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: unset;
+}
+body {
+  overflow-x: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  /* margin: 0 10%; */
+  margin: 0 10vw;
+  position: relative;
+  min-height: 812px;
+  height: 100%;
+  @include media-breakpoint-up(lg) {
+    margin: 0 7vw;
+    padding-bottom: 10vh;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin: 0 4vw;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    margin: 0;
+  }
+}
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  @include media-breakpoint-up(xxl) {
+    overflow-x: visible;
+  }
+}

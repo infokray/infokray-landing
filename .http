@@ -1,0 +1,9 @@
+GET http://localhost:3000/api/contact
+Content-Type: application/json
+
+{
+	"name": "derek",
+	"email": "derek@derek.derek",
+	"phone": "6969696969",
+	"message": "lorema asdfalj sdkfjk"
+}
