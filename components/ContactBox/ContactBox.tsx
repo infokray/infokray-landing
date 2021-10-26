@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import styles from "./ContactBox.module.scss";
+import styles from "./contactBox.module.scss";
 
 type ContactBoxProps = {
   header: string;

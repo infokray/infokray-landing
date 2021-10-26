@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import styles from "./contactsBlock.module.scss";
+import styles from "./ContactsBlock.module.scss";
 
 type ContactBlockProps = {
   bottom?: number;
