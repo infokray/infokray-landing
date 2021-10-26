@@ -34,7 +34,7 @@ const PhotoShoots: NextPage = () => {
           <SVGRightElement Icon={PartiesFragment} />
         </div>
       </div>
-      <ContactsBlock />
+      <ContactsBlock bottom={60} />
       {!isMobile && <SeminarFragmentLeft className="seminar__fragment-left" />}
     </>
   );

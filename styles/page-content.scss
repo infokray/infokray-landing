@@ -136,6 +136,13 @@
     font-size: 16px;
     letter-spacing: 0.055em;
     margin-top: 12%;
+    &Main {
+      font-size: 20px;
+      font-family: "Roboto";
+      margin: 0;
+      letter-spacing: 0.055em;
+      margin-top: 12%;
+    }
   }
   &__illustrations {
     position: relative;
@@ -182,6 +189,9 @@
     // }
     &__paragraph {
       font-size: 18px;
+      &Main {
+        font-size: 20px;
+      }
     }
     &__illustration {
       margin-top: 10%;
@@ -206,7 +216,6 @@
     }
     &__paragraph {
       margin-top: 8%;
-      // font-size: 20px;
     }
     &__illustration {
       margin-top: 8%;
@@ -248,7 +257,10 @@
       }
     }
     &__paragraph {
-      font-size: 22px;
+      font-size: 18px;
+      &Main {
+        font-size: 20px;
+      }
     }
     &__illustration {
       width: 100%;
@@ -258,8 +270,8 @@
 
   @include media-breakpoint-up(xxl) {
     &__illustration {
-      width: 135%;
-      height: 135%;
+      width: 100%;
+      height: 100%;
     }
   }
 }

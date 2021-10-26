@@ -1,11 +1,30 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./ContactsBlock.module.scss";
 
-const ContactsBlock: FC<{ mbottom?: string }> = ({ mbottom }) => {
+type ContactBlockProps = {
+  bottom?: number;
+  right?: number;
+  left?: number;
+  top?: number;
+};
+
+const ContactsBlock: FC<ContactBlockProps> = ({ bottom, right, left, top }) => {
+  const [windowWidth, setWindowWidth] = useState(null);
+
+  useEffect(() => {
+    if (window.innerWidth) {
+      setWindowWidth(window.innerWidth);
+    }
+  }, []);
   return (
     <div
       className={styles.contactsBlock}
-      style={mbottom && { marginBottom: mbottom }}
+      style={{
+        bottom: `${bottom}px`,
+        right: `${right}px`,
+        left: `${left}px`,
+        top: `${top}px`,
+      }}
     >
       <ul>
         <h2>Контакты</h2>

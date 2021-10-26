@@ -9,13 +9,13 @@ import Logo from "../components/Logo/Logo";
 const Home: NextPage = () => {
   return (
     <>
-      <div className="page-content__container" style={{ marginTop: "120px" }}>
+      <div className="page-content__container" style={{ marginTop: "60px" }}>
         <div className="page-content__text-content">
           <h1 className="page-content__header">
             ЛАСКОВО ПРОСИМО В <br />
             <Logo visible={true} />
           </h1>
-          <p className="page-content__paragraph">
+          <p className="page-content__paragraphMain">
             Ми надаємо послуги з організації виставок, конференцій, форумів,
             семінарів, бізнес-тренінгів, воркшопів тощо. Також Ви можете
             замовити у нас організацію корпоративного тімбілдингу та організацію
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         </div>
         <HomeIllustration className="page-content__illustration" />
       </div>
-      <ContactsBlock />
+      <ContactsBlock bottom={60} left={0} />
       <HomeFragment className="page-content__fragment" />
     </>
   );

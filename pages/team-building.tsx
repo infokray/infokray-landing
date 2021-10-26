@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TeamBuildingFragment from "../components/BackgroundFragments/TeamBuildingFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
@@ -7,12 +7,6 @@ import SVGRightElement from "../components/Illustrations/SVGRightElement";
 import TeamBuildingIllustration from "../components/Illustrations/TeamBuildingIllustration";
 
 const TeamBuilding: NextPage = () => {
-  const [widthSize, setWidthSize] = useState(null);
-  useEffect(() => {
-    const hasWindow = typeof window !== "undefined";
-    if (!hasWindow) return;
-    setWidthSize(window.innerWidth);
-  }, []);
   return (
     <>
       <div className="page-content__container">
@@ -99,7 +93,7 @@ const TeamBuilding: NextPage = () => {
                 style={{ margin: "0 auto" }}
               />
             </div>
-            <ContactsBlock mbottom={widthSize > 1400 ? "160px" : "70px"} />
+            <ContactsBlock bottom={140} right={0} />
           </div>
         </div>
       </div>

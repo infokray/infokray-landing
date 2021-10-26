@@ -43,7 +43,7 @@ body {
 
 .wrapper {
   /* margin: 0 10%; */
-  margin: 0 10vw;
+  margin: 0 10%;
   position: relative;
   min-height: 812px;
   height: 100%;
@@ -56,8 +56,8 @@ body {
     margin: 0 4vw;
   }
 
-  @include media-breakpoint-up(xxl) {
-    margin: 0;
+  @include media-breakpoint-up(xxxl) {
+    margin: 0 auto;
   }
 }
 body {
