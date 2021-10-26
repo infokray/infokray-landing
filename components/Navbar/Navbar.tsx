@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
-import styles from "./navbar.module.scss";
+import styles from "./Navbar.module.scss";
 import Link from "next/link";
 // import { Link, useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
@@ -17,9 +17,8 @@ const Navbar: FC = () => {
     <nav className={styles.navBar}>
       <Link href="/">
         <a>
-
-        {/* <Logo visible={location.pathname === "/" ? false : true} /> */}
-        <Logo visible />
+          {/* <Logo visible={location.pathname === "/" ? false : true} /> */}
+          <Logo visible />
         </a>
       </Link>
 
@@ -31,7 +30,13 @@ const Navbar: FC = () => {
         state={showNavMenu}
       />
 
-      <ul className={showNavMenu ? `${styles.navBar__menu} ${styles.active}` : styles.navBar__menu}>
+      <ul
+        className={
+          showNavMenu
+            ? `${styles.navBar__menu} ${styles.active}`
+            : styles.navBar__menu
+        }
+      >
         <NavbarLink
           name="Про Компанию"
           path="/"
