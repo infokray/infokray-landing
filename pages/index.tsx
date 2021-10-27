@@ -4,7 +4,7 @@ import Image from "next/image";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
-// import HomeIllustration from "../components/Illustrations/HomeIllustration";
+import HomeIllustration from "../components/Illustrations/HomeIllustration";
 import Logo from "../components/Logo/Logo";
 
 const Home: NextPage = () => {
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           </p>
           <CTAButton />
         </div>
-        <div style={{ width: "100%" }}>
+        {/* <div style={{ width: "100%" }}>
           <Image
             src="/images/home-illustration.svg"
             className="page-content__illustration"
@@ -33,8 +33,8 @@ const Home: NextPage = () => {
             height="100%"
             layout="responsive"
           />
-        </div>
-        {/* <HomeIllustration className="page-content__illustration" /> */}
+        </div> */}
+        <HomeIllustration className="page-content__illustration" />
       </div>
       <ContactsBlock bottom={60} left={0} />
       <HomeFragment className="page-content__fragment" />
