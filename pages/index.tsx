@@ -1,6 +1,5 @@
-import React, { FC } from "react";
+import React from "react";
 import { NextPage } from "next";
-import Image from "next/image";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
