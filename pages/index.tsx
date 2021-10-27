@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { NextPage } from "next";
+import Image from "next/image";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
       <div className="page-content__container" style={{ marginTop: "60px" }}>
         <div className="page-content__text-content">
           <h1 className="page-content__header">
-            ЛАСКОВО ПРОСИМО В <br />
+            <span className="header_welcome">ЛАСКОВО ПРОСИМО В</span>
             <Logo visible={true} />
           </h1>
           <p className="page-content__paragraphMain">
@@ -23,7 +24,17 @@ const Home: NextPage = () => {
           </p>
           <CTAButton />
         </div>
-        <HomeIllustration className="page-content__illustration" />
+        <div style={{ width: "100%" }}>
+          <Image
+            src="/images/home-illustration.svg"
+            className="page-content__illustration"
+            alt=""
+            width="100%"
+            height="100%"
+            layout="responsive"
+          />
+        </div>
+        {/* <HomeIllustration className="page-content__illustration" /> */}
       </div>
       <ContactsBlock bottom={60} left={0} />
       <HomeFragment className="page-content__fragment" />

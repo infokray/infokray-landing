@@ -14,16 +14,25 @@ body {
   margin: 0;
 }
 @font-face {
-  font-family: "Seoul";
-  src: local("Seoul"), url(./fonts/SeoulHangangCondensed-Bold.ttf) format("ttf");
+  font-family: "SeoulHangang B";
+  src: url("./fonts/subset-SeoulHangangB.woff2") format("woff2"),
+    url("./fonts/subset-SeoulHangangB.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Seoul";
-  src: url("./fonts/SeoulHangang-B.ttf.woff") format("woff"),
-    url("./fonts/SeoulHangang-B.ttf.svg#SeoulHangang-B") format("svg"),
-    url("./fonts/SeoulHangang-B.ttf.eot"),
-    url("./fonts/SeoulHangang-B.ttf.eot?#iefix") format("embedded-opentype");
+  font-family: "SeoulHangang B";
+  src: url("./fonts/subset-SeoulHangangB.woff2") format("woff2"),
+    url("./fonts/subset-SeoulHangangB.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeoulHangang CB";
+  src: url("./fonts/subset-SeH-CB.woff2") format("woff2"),
+    url("./fonts/subset-SeH-CB.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
