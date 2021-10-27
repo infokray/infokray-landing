@@ -4,7 +4,7 @@ import Image from "next/image";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
-import HomeIllustration from "../components/Illustrations/HomeIllustration";
+// import HomeIllustration from "../components/Illustrations/HomeIllustration";
 import Logo from "../components/Logo/Logo";
 
 const Home: NextPage = () => {
