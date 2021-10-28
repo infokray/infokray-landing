@@ -18,7 +18,7 @@ const Navbar: FC = () => {
       <Link href="/">
         <a>
           {/* <Logo visible={location.pathname === "/" ? false : true} /> */}
-          <Logo visible />
+          <Logo visible onClick={() => setShowNavMenu(false)} />
         </a>
       </Link>
 
