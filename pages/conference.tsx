@@ -47,4 +47,9 @@ const Conference: NextPage = () => {
   );
 };
 
+// export async function getStaticPaths() {
+//   return {
+//       paths: "",
+//       fallback: false
+//   }
 export default Conference;

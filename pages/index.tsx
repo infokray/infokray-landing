@@ -1,5 +1,5 @@
-import React from "react";
 import { NextPage } from "next";
+import React from "react";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
@@ -23,16 +23,7 @@ const Home: NextPage = () => {
           </p>
           <CTAButton />
         </div>
-        {/* <div style={{ width: "100%" }}>
-          <Image
-            src="/images/home-illustration.svg"
-            className="page-content__illustration"
-            alt=""
-            width="100%"
-            height="100%"
-            layout="responsive"
-          />
-        </div> */}
+
         <HomeIllustration className="page-content__illustration" />
       </div>
       <ContactsBlock bottom={60} left={0} />
