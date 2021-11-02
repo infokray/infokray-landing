@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
 import styles from "./Navbar.module.scss";
 import Link from "next/link";
@@ -12,7 +12,9 @@ const Navbar: FC = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const closeMobileMenu = () => setShowNavMenu(false);
   // const location = useLocation();
-
+  useEffect(() => {
+    window.screen.orientation.lock("landscape-primary");
+  }, []);
   return (
     <nav className={styles.navBar}>
       <Link href="/">
