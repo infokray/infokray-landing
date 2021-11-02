@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./emailInput.module.scss";
 // import emailjs from "emailjs-com"
 // import sgMail from "@sendgrid/mail"
@@ -12,28 +12,34 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const alertRef = useRef<any>();
+
+  let mes = ['Повідомлення відправлено!', 'Сталася помилка! Спробуйте пізніше.'];
 
   let sendEmail = (e: any) => {
     e.preventDefault();
-    // emailjs.sendForm('service_plez7kr', 'template_m7ax64k', e.target, 'user_4hgg0NfxixNGD32qLzmdX')
-    //   .then(res => {
-    //     console.log(res);
-    //     setIsSubmitted(true);
-    //     setTimeout(() => setIsSubmitted(false), 3000);
-    //   })
-    //   .catch(err => console.log(err))
-    // setIsSubmitted(true);
-    // setTimeout(() => {setIsSubmitted(false)}, 3000);
+
+    let promise = new Promise((resolve, reject) => {
+      let rand = Math.random();
+      if(rand < 0.33) setTimeout(() => {resolve({status: 'OK', message: 'Повідомлення відправлено!'})}, 1000)
+      else if(rand >= 0.33 || rand < 0.66) setTimeout(() => {resolve({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'})}, 1000)
+      else if(rand >= 0.66) setTimeout(() => {reject({error: 'ERR110', message: 'Сталася помилка! Спробуйте пізніше.'})}, 1000)
+    })
+
+
+    promise.then((res: any) => {fireAlert(res)}).catch((e: any) => fireAlert(e));
+
   };
 
-  let testModal = (e: any) => {
-    e.preventDefault();
-
+  const fireAlert = (res) => {
+    alertRef.current.innerHTML = res.message;
+    if(res.status === "OK") alertRef.current.style.color = "green";
+    else alertRef.current.style.color = "red";
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
-  };
+  }
 
   return (
     <>
@@ -84,7 +90,7 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
             </button>
             <button
               type="submit"
-              onClick={testModal}
+              onClick={sendEmail}
               className={styles.emailInput__submitBtn}
             >
               ВIДПРАВИТИ
@@ -94,6 +100,7 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
       </form>
       <div
         className={`${styles.alert} ${isSubmitted ? styles.alertActive : ""}`}
+        ref={alertRef}
       >
         Success! The message was sent.
       </div>
