@@ -11,10 +11,6 @@ import Dropdown from "../Dropdown/Dropdown";
 const Navbar: FC = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const closeMobileMenu = () => setShowNavMenu(false);
-  // const location = useLocation();
-  useEffect(() => {
-    window.screen.orientation.lock("landscape-primary");
-  }, []);
   return (
     <nav className={styles.navBar}>
       <Link href="/">

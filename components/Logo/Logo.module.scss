@@ -13,6 +13,7 @@
     font-size: 24px;
     line-height: 24px;
     letter-spacing: 0.345em;
+    margin-top: 1px;
   }
 
   h1 {
@@ -36,6 +37,7 @@
   @include media-breakpoint-up(sm) {
     span {
       font-size: 38px;
+      margin-top: 3px;
     }
     h1 {
       font-size: 38px;
@@ -44,6 +46,7 @@
   @include media-breakpoint-up(lg) {
     span {
       font-size: 40px;
+      line-height: 33px;
     }
     h1 {
       font-size: 40px;
@@ -53,6 +56,7 @@
   @include media-breakpoint-up(xl) {
     span {
       font-size: 48px;
+      line-height: 42px;
     }
     h1 {
       font-size: 48px;

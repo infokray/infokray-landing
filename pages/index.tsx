@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React from "react";
+import React, { useEffect } from "react";
 import HomeFragment from "../components/BackgroundFragments/HomeFragment";
 import ContactsBlock from "../components/ContactsBlock/ContactsBlock";
 import CTAButton from "../components/CTAButton/CTAButton";
@@ -11,10 +11,10 @@ const Home: NextPage = () => {
     <>
       <div className="page-content__container" style={{ marginTop: "60px" }}>
         <div className="page-content__text-content">
-          <h1 className="page-content__header">
+          <div className="page-content__header">
             <span className="header_welcome">ЛАСКОВО ПРОСИМО В</span>
             <Logo visible={true} />
-          </h1>
+          </div>
           <p className="page-content__paragraphMain">
             Ми надаємо послуги з організації виставок, конференцій, форумів,
             семінарів, бізнес-тренінгів, воркшопів тощо. Також Ви можете

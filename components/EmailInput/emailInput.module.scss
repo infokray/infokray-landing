@@ -154,29 +154,29 @@
   }
 }
 
-.alert{
+.alert {
+  width: 275px;
   position: absolute;
+  z-index: 7;
   top: 0;
-  margin-top: 20px;
-  margin-right: 20px;
+  left: 50%;
   background: red;
   padding: 15px;
-  right: 0;
   box-shadow: 0px 4px 20px rgba(74, 102, 179, 0.65);
-  opacity: 0;
-  z-index: 20;
-  transform: translate(100%,0);
+  opacity: 1;
+  transform: translate(-50%, -150%);
   font-family: "Roboto";
   font-weight: 300;
   background: #f7f7f7;
   border-radius: 15px;
   font-size: 14px;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 
   &Active {
     opacity: 1;
     display: block;
-    transform: translate(0,0);
+    transform: translate(-50%, 150%);
+    z-index: 10;
   }
 
   @include media-breakpoint-up(sm) {
