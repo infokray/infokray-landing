@@ -14,32 +14,56 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
   const [message, setMessage] = useState("");
   const alertRef = useRef<any>();
 
-  let mes = ['Повідомлення відправлено!', 'Сталася помилка! Спробуйте пізніше.'];
+  let mes = [
+    "Повідомлення відправлено!",
+    "Сталася помилка! Спробуйте пізніше.",
+  ];
 
   let sendEmail = (e: any) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     e.preventDefault();
 
     let promise = new Promise((resolve, reject) => {
       let rand = Math.random();
-      if(rand < 0.33) setTimeout(() => {resolve({status: 'OK', message: 'Повідомлення відправлено!'})}, 1000)
-      else if(rand >= 0.33 || rand < 0.66) setTimeout(() => {resolve({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'})}, 1000)
-      else if(rand >= 0.66) setTimeout(() => {reject({error: 'ERR110', message: 'Сталася помилка! Спробуйте пізніше.'})}, 1000)
-    })
+      if (rand < 0.33)
+        setTimeout(() => {
+          resolve({ status: "OK", message: "Повідомлення відправлено!" });
+        }, 1000);
+      else if (rand >= 0.33 || rand < 0.66)
+        setTimeout(() => {
+          resolve({
+            status: "BAD",
+            message: "Сталася помилка! Спробуйте пізніше.",
+          });
+        }, 1000);
+      else if (rand >= 0.66)
+        setTimeout(() => {
+          reject({
+            error: "ERR110",
+            message: "Сталася помилка! Спробуйте пізніше.",
+          });
+        }, 1000);
+    });
 
-
-    promise.then((res: any) => {fireAlert(res)}).catch((e: any) => fireAlert(e));
-
+    promise
+      .then((res: any) => {
+        fireAlert(res);
+      })
+      .catch((e: any) => fireAlert(e));
   };
 
   const fireAlert = (res) => {
     alertRef.current.innerHTML = res.message;
-    if(res.status === "OK") alertRef.current.style.color = "green";
+    if (res.status === "OK") alertRef.current.style.color = "green";
     else alertRef.current.style.color = "red";
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
-  }
+  };
 
   return (
     <>

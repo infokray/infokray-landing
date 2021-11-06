@@ -19,7 +19,7 @@
     z-index: -1;
     transform: scale(0.7);
     @include media-breakpoint-up(md) {
-      top: 5%;
+      top: -5%;
       right: 30%;
       transform: scale(0.7);
     }
@@ -46,7 +46,9 @@
     grid-gap: 30px;
     justify-items: center;
     height: 100%;
-
+    @include media-breakpoint-up(md) {
+      margin-top: 20px;
+    }
     @include media-breakpoint-up(xl) {
       grid-template-columns: 1fr 1fr;
       padding-top: 10px;
