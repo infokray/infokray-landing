@@ -1,69 +1,84 @@
 import React, { useRef, useState } from "react";
 import styles from "./emailInput.module.scss";
-// import emailjs from "emailjs-com"
-// import sgMail from "@sendgrid/mail"
+
 type Props = {
   handleClose: () => void;
 };
 
 const EmailInput: React.FC<Props> = ({ handleClose }) => {
-  const [name, setName] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const alertRef = useRef<any>();
+  const submitRef = useRef<any>();
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [values, setValues] = useState<any>({});
+  const [errors, setErrors] = useState<any>({});
+  
   function scrollTop() {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
-  let mes = [
-    "Повідомлення відправлено!",
-    "Сталася помилка! Спробуйте пізніше.",
-  ];
 
+  let validate = (name, value) => {
+    let errs: any = {...errors}
+    switch (name) {
+      case 'email':
+        if(!value || !/\S+@\S+\.\S+/.test(value)) errs.email = true;
+        else errs.email = false
+        break;
+      case 'phone':
+        if (!value || !/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(value)) errs.phone = true;
+        else errs.phone = false
+        break;
+      case 'name':
+        if (!value) errs.name = true;
+        else errs.name = false
+        break;
+      case 'message':
+        if (!value) errs.message = true;
+        else errs.message = false
+        break;
+      default: 
+        return errs;
+    }
+   
+    return errs;
+  }
+
+  let handleChange = (event) => {
+    setValues(values => ({ ...values, [event.target.name]: event.target.value}))
+    setErrors(validate(event.target.name, event.target.value));
+  }
+  
   let sendEmail = (e: any) => {
     scrollTop();
     e.preventDefault();
-    let promise = new Promise((resolve, reject) => {
-      let rand = Math.random();
-      if (rand < 0.33)
-        setTimeout(() => {
-          resolve({ status: "OK", message: "Повідомлення відправлено!" });
-        }, 1000);
-      else if (rand >= 0.33 || rand < 0.66)
-        setTimeout(() => {
-          resolve({
-            status: "BAD",
-            message: "Сталася помилка! Спробуйте пізніше.",
-          });
-        }, 1000);
-      else if (rand >= 0.66)
-        setTimeout(() => {
-          reject({
-            error: "ERR110",
-            message: "Сталася помилка! Спробуйте пізніше.",
-          });
-        }, 1000);
-    });
 
-    promise
-      .then((res: any) => {
-        fireAlert(res);
-      })
-      .catch((e: any) => fireAlert(e));
+    for(let property in values) {
+      validate(property, values[property])
+    }
+
+    for(let property in errors) {
+      if(errors[property]) return alert("Будь ласка, заповніть форму дійсними даними");
+    }
+
+
+    fetch('/api/email',{
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: { 'Content-Type': 'application/json'}
+    }).then(res => res.json()).then(data => fireAlert(data))
+
   };
 
   const fireAlert = (res) => {
     alertRef.current.innerHTML = res.message;
-    if (res.status === "OK") alertRef.current.style.color = "green";
+    if (res.status === "OK") {alertRef.current.style.color = "green"; setValues({})}
     else alertRef.current.style.color = "red";
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
-      setTimeout(() => handleClose(), 500);
+      if(res.status === "OK") setTimeout(() => handleClose(), 500);
     }, 3000);
   };
 
@@ -77,7 +92,10 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
               <input
                 type="text"
                 name="name"
-                onChange={(ev) => setName(ev.target.value)}
+                className={`${errors.name && styles.inputError}`}
+                value={values.name || ''}
+                onChange={handleChange}
+                required
               />
             </div>
             <div className={styles.emailInput__smallInputsContainer}>
@@ -86,16 +104,22 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
                 type="email"
                 name="email"
                 placeholder="name@gmail.com"
-                onChange={(ev) => setEmail(ev.target.value)}
+                className={`${errors.email && styles.inputError}`}
+                value={values.email || ''}
+                onChange={handleChange}
+                required
               />
             </div>
             <div className={styles.emailInput__smallInputsContainer}>
               <p>Телефон</p>
               <input
                 type="tel"
-                name="number"
+                name="phone"
                 placeholder="+38 (000) 000-00-03"
-                onChange={(ev) => setPhone(ev.target.value)}
+                className={`${errors.phone && styles.inputError}`}
+                value={values.phone || ''}
+                onChange={handleChange}
+                required
               />
             </div>
           </div>
@@ -103,7 +127,10 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
             <textarea
               placeholder="Повiдомления"
               name="message"
-              onChange={(ev) => setMessage(ev.target.value)}
+                className={`${errors.message && styles.inputError}`}
+                value={values.message || ''}
+                onChange={handleChange}
+              required
             />
           </div>
           <div className={styles.emailInput__btns}>
@@ -119,6 +146,7 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
             </button>
             <button
               type="submit"
+              ref={submitRef}
               onClick={sendEmail}
               className={styles.emailInput__submitBtn}
             >
