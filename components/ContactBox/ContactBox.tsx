@@ -5,7 +5,7 @@ type ContactBoxProps = {
   header: string;
   svg: ReactNode;
   body: string;
-  btnText: string | null;
+  btnText: any | null;
   handler: () => void;
 };
 

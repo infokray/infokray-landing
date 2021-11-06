@@ -26,7 +26,7 @@ const Contact: NextPage = () => {
           header="Дзвонити"
           svg={<PhoneSVG />}
           body={"Розклад роботи: \n Понеділок – П’ятниця \n 09:00 - 17:00"}
-          btnText="+38 (067) 368-46-03"
+          btnText={<a href="tel:+38-067-368-46-03">+38 (067) 368-46-03</a>}
           handler={() => console.log("clicked")}
         />
         <ContactBox

@@ -25,6 +25,9 @@
       display: flex;
       flex-direction: column;
     }
+    a {
+      text-decoration: none;
+    }
   }
   &__svg {
     height: 50px;

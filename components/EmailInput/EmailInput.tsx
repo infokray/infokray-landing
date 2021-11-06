@@ -13,19 +13,20 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const alertRef = useRef<any>();
-
+  function scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
   let mes = [
     "Повідомлення відправлено!",
     "Сталася помилка! Спробуйте пізніше.",
   ];
 
   let sendEmail = (e: any) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    scrollTop();
     e.preventDefault();
-
     let promise = new Promise((resolve, reject) => {
       let rand = Math.random();
       if (rand < 0.33)
@@ -62,6 +63,7 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
+      setTimeout(() => handleClose(), 500);
     }, 3000);
   };
 
@@ -107,7 +109,10 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
           <div className={styles.emailInput__btns}>
             <button
               type="button"
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+                scrollTop();
+              }}
               className={styles.emailInput__closeBtn}
             >
               Закрити
