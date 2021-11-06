@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 export default async function handler(req, res) {
     const {name, email, phone, message} = req.body;
 
-    if(!name || !email || !phone || !message) res.status(401).json({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'})
+    if(!name || !email || !phone || !message) return res.status(401).json({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'})
 
     let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
@@ -44,8 +44,8 @@ export default async function handler(req, res) {
 </tbody>
 </table>`
     }, (err, info) => {
-        if(err) res.status(501).json({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'});
-        res.status(200).json({status: 'OK', message: 'Повідомлення відправлено!'});
+        if(err) return res.status(501).json({status: 'BAD', message: 'Сталася помилка! Спробуйте пізніше.'});
+        return res.status(200).json({status: 'OK', message: 'Повідомлення відправлено!'});
     })
 
 }

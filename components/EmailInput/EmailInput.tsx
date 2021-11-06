@@ -54,10 +54,6 @@ const EmailInput: React.FC<Props> = ({ handleClose }) => {
     scrollTop();
     e.preventDefault();
 
-    for(let property in values) {
-      validate(property, values[property])
-    }
-
     for(let property in errors) {
       if(errors[property]) return alert("Будь ласка, заповніть форму дійсними даними");
     }
