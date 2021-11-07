@@ -2,17 +2,24 @@ import React, { FC, useEffect, useState } from "react";
 import useClickOutside from "../../hooks/useClickOutside";
 import styles from "./Navbar.module.scss";
 import Link from "next/link";
-// import { Link, useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import ArrowSVG from "../../IconsSVG/ArrowSVG";
 import BurgerSVG from "../../IconsSVG/BurgerSVG";
 import Dropdown from "../Dropdown/Dropdown";
+import useDeviceDetect from "../../hooks/useDeviceDetect";
+import { useScrollBlock } from "../../hooks/useScrollBlock";
 
 const Navbar: FC = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const closeMobileMenu = () => setShowNavMenu(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
+  const isMobile = useDeviceDetect();
+  useEffect(() => {
+    window.scrollTo({ top: -100 });
+    showNavMenu && isMobile ? blockScroll() : allowScroll();
+  }, [showNavMenu]);
   return (
-    <nav className={styles.navBar}>
+    <nav className={`${styles.navBar}`}>
       <Link href="/">
         <a>
           {/* <Logo visible={location.pathname === "/" ? false : true} /> */}

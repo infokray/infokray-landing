@@ -188,6 +188,7 @@
   @include media-breakpoint-up(sm) {
     &__header {
       font-size: 38px;
+      height: 80px;
       .header_welcome {
         font-size: 38px;
       }

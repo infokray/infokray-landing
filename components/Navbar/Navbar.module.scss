@@ -55,6 +55,7 @@
   }
   &__menu.active {
     transform: translate(0, 0);
+    height: 150vh;
   }
 
   @include media-breakpoint-up(sm) {
