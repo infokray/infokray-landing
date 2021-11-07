@@ -27,7 +27,7 @@
       font-weight: 600;
       margin-bottom: 30px;
     }
-    p {
+    div.page-content__paragraph {
       padding: 0;
       margin: 0;
       font-size: 18px;
@@ -47,6 +47,9 @@
           margin: 8px 0;
           span {
             margin-right: 12px;
+          }
+          p{
+            margin: 0;
           }
         }
       }
@@ -77,10 +80,12 @@
         grid-column: 1 / span 2;
         margin: 0;
       }
-      p {
+      div.page-content__paragraph {
         ul {
           li {
+            display:flex;
             margin: 4px 0;
+            
           }
         }
       }
@@ -95,8 +100,9 @@
         grid-column: 1 / span 2;
         margin: 0;
       }
-      p {
+      div.page-content__paragraph {
         min-width: 588px;
+        margin-top: 0;
         ul {
           font-size: 18px;
           list-style: none;
@@ -105,6 +111,9 @@
           line-height: 23px;
           letter-spacing: 8%;
           font-weight: 500;
+          li{
+            display: flex;
+          }
         }
       }
       .cta-btn__btn {

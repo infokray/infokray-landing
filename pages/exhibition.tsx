@@ -16,7 +16,7 @@ const Exhibition: NextPage = () => {
       <div className="page-content__container">
         <div className="page-content__text-content">
           <h1 className="page-content__header">Організація виставок</h1>
-          <p className="page-content__paragraph vebinar__paragraph">
+          <div className="page-content__paragraph vebinar__paragraph">
             <h2>Виставка</h2>
             це заздалегідь запланована демонстрація експонатів, які
             представляють собою єдинеціле. Її дієвість заснована на приверненні
@@ -30,7 +30,7 @@ const Exhibition: NextPage = () => {
             форма виставкової діяльності, яка поєднує рекламу з продажем товарів
             тавивченням виробничими фірмами поглядів покупців. Ми з радістю
             організуємо для вас торгівельну або інформаційно-ознайомчу виставку»
-          </p>
+          </div>
           <CTAButton />
         </div>
         <div className="page-content__illustrations">

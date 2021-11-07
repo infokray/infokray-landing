@@ -12,7 +12,7 @@ const TeamBuilding: NextPage = () => {
       <div className="page-content__container">
         <div className="page-content__teamBuilding">
           <h1 className="page-content__header">Корпоративний Teambuilding</h1>
-          <p className="page-content__paragraph">
+          <div className="page-content__paragraph">
             Ми надаємо послуги з організації виставок, конференцій, форумів,
             семінарів, бізнес-тренінгів, воркшопів тощо. Також Ви можете
             замовити у нас організацію корпоративного тімбілдингу та організацію
@@ -75,9 +75,9 @@ const TeamBuilding: NextPage = () => {
                 <p>Психологічне розвантаження колективу</p>
               </li>
             </ul>
-          </p>
+          </div>
           <div>
-            <p className="page-content__paragraph">
+            <p className="page-content__paragraph" style={{margin: "0"}}>
               Таким чином, групу найманих працівників ви можете перетворити в
               команду, що об’єднана загальними ідеями, завданнями та
               корпоративними цінностями. Розважальний аспект Тімбілдингу

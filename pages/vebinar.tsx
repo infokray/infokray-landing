@@ -16,7 +16,7 @@ const Vebinar: NextPage = () => {
       <div className="page-content__container">
         <div className="page-content__text-content">
           <h1 className="page-content__header">Організація вебінарів</h1>
-          <p className="page-content__paragraph vebinar__paragraph">
+          <div className="page-content__paragraph vebinar__paragraph">
             <span>
               «Вебінар – це семінар, тренінг, будь який вид навчання чи ділового
               спілкування, що проводиться в мережі Інтернет в режимі реального
@@ -42,7 +42,7 @@ const Vebinar: NextPage = () => {
                 вебінару Ви зможете отримати відеозапис вебінару.»
               </li>
             </ul>
-          </p>
+          </div>
           <CTAButton />
         </div>
         <div
