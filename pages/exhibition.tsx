@@ -34,14 +34,15 @@ const Exhibition: NextPage = () => {
           <CTAButton />
         </div>
         <div className="page-content__illustrations">
-          <ExhibitionIllustration
-            className="page-content__illustration"
-            style={{ marginTop: "-100px" }}
-          />
+          <ExhibitionIllustration className="page-content__illustration" />
           <SVGRightElement Icon={ConferenceFragment} />
         </div>
       </div>
-      <ContactsBlock right={0} bottom={40} />
+      <ContactsBlock
+        right={0}
+        bottom={40}
+        className="page-content__contactBlock_exhibition"
+      />
       {!isMobile && <SeminarFragmentLeft className="seminar__fragment-left" />}
     </>
   );

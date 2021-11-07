@@ -66,7 +66,8 @@
       h1 {
         font-weight: 500;
         font-size: 42px;
-        margin-top: 10px;
+        margin-top: 20px;
+        margin-bottom: 0px;
       }
     }
     @include media-breakpoint-up(lg) {
@@ -171,6 +172,10 @@
     width: 80%;
     height: 80%;
     margin-top: 15%;
+    margin: 0 !important;
+    @include media-breakpoint-up(xl) {
+      margin-top: -60px;
+    }
   }
 
   &__fragment {
@@ -249,6 +254,10 @@
       margin-top: 0;
     }
 
+    &__header {
+      font-size: 36px;
+    }
+
     &__illustration {
       margin-top: 0;
       margin-left: 7%;
@@ -286,6 +295,28 @@
     &__illustration {
       width: 100%;
       height: 100%;
+    }
+  }
+  &__contactBlock {
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 30px;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-bottom: -30px;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: -45px;
+    }
+  }
+  &__contactBlock_exhibition {
+    @include media-breakpoint-up(lg) {
+      margin: 0 !important;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-bottom: -20px !important;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: -45px !important;
     }
   }
 }

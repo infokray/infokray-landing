@@ -6,9 +6,16 @@ type ContactBlockProps = {
   right?: number;
   left?: number;
   top?: number;
+  className?: string;
 };
 
-const ContactsBlock: FC<ContactBlockProps> = ({ bottom, right, left, top }) => {
+const ContactsBlock: FC<ContactBlockProps> = ({
+  bottom,
+  right,
+  left,
+  top,
+  className,
+}) => {
   const [windowWidth, setWindowWidth] = useState(null);
 
   useEffect(() => {
@@ -18,7 +25,7 @@ const ContactsBlock: FC<ContactBlockProps> = ({ bottom, right, left, top }) => {
   }, []);
   return (
     <div
-      className={styles.contactsBlock}
+      className={`${styles.contactsBlock} ${className}`}
       style={{
         bottom: `${bottom}px`,
         right: `${right}px`,

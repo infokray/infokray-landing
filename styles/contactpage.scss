@@ -80,7 +80,7 @@
   right: -10vw;
   z-index: 5;
   @include media-breakpoint-up(lg) {
-    right: -5vw;
+    right: -3vw;
   }
   @include media-breakpoint-up(xxl) {
     position: static;

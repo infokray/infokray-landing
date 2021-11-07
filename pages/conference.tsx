@@ -33,15 +33,16 @@ const Conference: NextPage = () => {
           </p>
           <CTAButton />
         </div>
-        <div
-          className="page-content__illustrations"
-          style={{ marginTop: "-130px" }}
-        >
+        <div className="page-content__illustrations">
           <ConferenceIllustration className="page-content__illustration" />
           <SVGRightElement Icon={ConferenceFragment} />
         </div>
       </div>
-      <ContactsBlock bottom={40} right={0} />
+      <ContactsBlock
+        bottom={40}
+        right={0}
+        className="page-content__contactBlock"
+      />
       {!isMobile && <SeminarFragmentLeft className="seminar__fragment-left" />}
     </>
   );
