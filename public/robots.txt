@@ -1,0 +1,7 @@
+# Block all crawlers for /api/email
+User-agent: *
+Disallow: /api/email
+
+# Allow all crawlers
+User-agent: *
+Allow: /
