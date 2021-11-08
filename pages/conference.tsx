@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import React from "react";
 import ConferenceFragment from "../components/BackgroundFragments/ConferenceFragment";
 import SeminarFragmentLeft from "../components/BackgroundFragments/SeminarFragmentLeft";

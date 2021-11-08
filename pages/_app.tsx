@@ -8,9 +8,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>INFOKRAY</title>
-        <link rel="shortcut icon" href="/favicon.png" key="shortcutIcon" />
-        <link rel="manifest" href="/manifest.json" />
+        <title>Iнфокрай</title>
+        <link rel="shortcut icon" href="/favicon.ico" key="shortcutIcon" />
+        <meta name="googlebot" content="noindex,nofollow" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="google" content="notranslate" key="notranslate" />
+        <meta name="description" content="Iнфокрай" />
       </Head>
       <Wrapper>
         <Navbar />
